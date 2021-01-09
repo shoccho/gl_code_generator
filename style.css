@@ -1,0 +1,10 @@
+body {
+  background: azure;
+}
+button {
+  display: inline;
+  background-color: azure;
+}
+#c {
+  background-color: #fff;
+}
