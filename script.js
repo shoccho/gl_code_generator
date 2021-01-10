@@ -6,6 +6,7 @@ var colorChooser = document.getElementById("color");
 
 var code = "";
 var stateColor = null;
+
 function addRect() {
   var rect = new fabric.Rect({
     id: uuid++,
@@ -18,6 +19,7 @@ function addRect() {
   objs.push(rect);
   canvas.add(rect);
 }
+
 function addCircle() {
   var circle = new fabric.Circle({
     id: uuid++,
@@ -59,22 +61,19 @@ function removeObj() {
 
 function printPos() {
   code = "";
-
+  document.getElementById("generatedCode").innerText = "";
   console.log(objs);
   for (obj of objs) {
-    // console.log(obj.type)
     if (obj.type == "circle") {
-      console.log(parseInt(obj.left), parseInt(obj.top), obj.radius / 2);
+      genCircle(obj);
     } else if (obj.type == "rect") {
-      // console.log("top",this.obj.lineCoords.tl.x,this.obj.lineCoords.tl.y,"bottom",this.obj.lineCoords.br.x,this.obj.lineCoords.br.y);
       genRect(obj);
     } else if (obj.type == "triangle") {
       genTriangle(obj);
-      // console.log(obj);
-      // console.log("first ",parseInt(this.obj.lineCoords.bl.x+this.obj.lineCoords.br.x/2),"second ",this.obj.lineCoords.bl,"third ",this.obj.lineCoords.br);
     }
   }
-  document.getElementById("generatedCode").innerText = code;
+
+  document.getElementById("generatedCode").innerText = part1 + code + part2;
 }
 
 function genRect(rect) {
@@ -89,8 +88,19 @@ function genRect(rect) {
   var bx = rect.lineCoords.br.x.toFixed(2) - 1;
   var by = rect.lineCoords.br.y.toFixed(2) - 1;
 
-  var line = `glRectf(${tx}f,${ty}f, ${bx}f,${by}f);\n`;
+  var line = `\tglRectf(${tx}f,${ty}f, ${bx}f,${by}f);\n`;
   code += line;
+}
+
+function genCircle(circle) {
+  var color = circle.fill;
+  if (color != stateColor) {
+    stateColor = color;
+    code += genGlcolor(color);
+  }
+  code += `\tdrawFilledelipse(${circle.left + circle.radius},${
+    circle.top + circle.radius
+  },${circle.radius},${circle.radius});\n`;
 }
 
 function genTriangle(triangle) {
@@ -108,11 +118,11 @@ function genTriangle(triangle) {
   var tx = triangle.left.toFixed(2) + (parseFloat(fx) + parseFloat(sx)) / 2;
   var ty = triangle.lineCoords.tr.y.toFixed(2);
 
-  code += "glBegin(GL_TRIANGLES);\n";
-  code += `glVertex2f(${fx}f,${fy}f);\n`;
-  code += `glVertex2f(${sx}f,${sy}f);\n`;
-  code += `glVertex2f(${tx}f,${ty}f);\n`;
-  code += "glEnd();\n";
+  code += "\tglBegin(GL_TRIANGLES);\n";
+  code += `\t\tglVertex2f(${fx}f,${fy}f);\n`;
+  code += `\t\tglVertex2f(${sx}f,${sy}f);\n`;
+  code += `\t\tglVertex2f(${tx}f,${ty}f);\n`;
+  code += "\tglEnd();\n";
 }
 
 function genGlcolor(colorCode) {

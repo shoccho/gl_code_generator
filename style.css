@@ -21,6 +21,7 @@ button {
   font: mono;
   font-size: large;
   font-weight: bold;
+  overflow: scroll;
 
   padding: 5px;
   width: 45%;
