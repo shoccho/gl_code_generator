@@ -1,5 +1,6 @@
 body {
   background: azure;
+  font-family: "Courier New", Courier, monospace;
 }
 button {
   display: inline;
@@ -20,7 +21,7 @@ button {
   font: mono;
   font-size: large;
   font-weight: bold;
-  margin-top: 50px;
+
   padding: 5px;
   width: 45%;
   height: 500px;
