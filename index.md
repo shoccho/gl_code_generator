@@ -1,2 +1,4 @@
-title: openGL code generator
+---
+title: OpenGL code generator
 layout: default
+---
