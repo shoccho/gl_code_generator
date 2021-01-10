@@ -82,14 +82,15 @@ function genRect(rect) {
     stateColor = color;
     code += genGlcolor(color);
   }
-  var tx = rect.lineCoords.tl.x.toFixed(2);
-  var ty = rect.lineCoords.tl.y.toFixed(2);
 
-  var bx = rect.lineCoords.br.x.toFixed(2) - 1;
-  var by = rect.lineCoords.br.y.toFixed(2) - 1;
 
-  var line = `\tglRectf(${tx}f,${ty}f, ${bx}f,${by}f);\n`;
-  code += line;
+  code += "\tglBegin(GL_QUADS);\n";
+  code += `\t\tglVertex2f(${rect.lineCoords.tr.x}f,${rect.lineCoords.tr.y}f);\n`;
+  code += `\t\tglVertex2f(${rect.lineCoords.tl.x}f,${rect.lineCoords.tl.y}f);\n`;
+  code += `\t\tglVertex2f(${rect.lineCoords.bl.x}f,${rect.lineCoords.bl.y}f);\n`;
+  code += `\t\tglVertex2f(${rect.lineCoords.br.x}f,${rect.lineCoords.br.y}f);\n`;
+  code += "\tglEnd();\n";
+
 }
 
 function genCircle(circle) {
