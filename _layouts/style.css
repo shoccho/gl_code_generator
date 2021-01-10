@@ -5,6 +5,10 @@ body {
 button {
   display: inline;
   background-color: rgb(255, 255, 255);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 #c {
   background-color: #fff;
