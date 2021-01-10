@@ -3,8 +3,25 @@ body {
 }
 button {
   display: inline;
-  background-color: azure;
+  background-color: rgb(255, 255, 255);
 }
 #c {
   background-color: #fff;
+}
+.wrapper {
+  float: left;
+  width: 50%;
+}
+
+#generatedCode {
+  float: left;
+  color: aliceblue;
+  background-color: darkslategray;
+  font: mono;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 50px;
+  padding: 5px;
+  width: 45%;
+  height: 500px;
 }
