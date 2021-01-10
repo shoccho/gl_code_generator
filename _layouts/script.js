@@ -115,9 +115,7 @@ function genTriangle(triangle) {
   var sx = triangle.lineCoords.br.x.toFixed(2);
   var sy = triangle.lineCoords.br.y.toFixed(2);
 
-  var tx =
-    parseFloat(triangle.left.toFixed(2)) +
-    (parseFloat(fx) + parseFloat(sx)) / 2;
+  var tx = parseFloat(fx) + (parseFloat(sx) - parseFloat(fx)) / 2;
   var ty = triangle.lineCoords.tr.y.toFixed(2);
 
   code += "\tglBegin(GL_TRIANGLES);\n";
