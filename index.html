@@ -6,17 +6,20 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Source+Code+Pro&display=swap" rel="stylesheet">
     <title>Editor</title>
 </head>
 
 <body>
     <div class="wrapper">
-    Choose color for the element
+    Color
     <input type="color" id="color" name="color" value="#111111">
-    <br>
-    <button onclick="addRect()">Add Rectangle</button>
-    <button onclick="addCircle()">Add Circle</button>
-    <button onclick="addTriangle()">Add Triangle</button>
+  
+    <button onclick="addRect()">Rectangle</button>
+    <button onclick="addCircle()">Circle</button>
+    <button onclick="addTriangle()">Triangle</button>
     <button onclick="removeObj()">Delete</button>
     <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
     <button onclick="printPos()">Code</button>
@@ -26,7 +29,7 @@
    </div>
    <div class="codebox">
        <h2>Code</h2>
-       <textarea id="generatedCode" autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0"></textarea>
+       <textarea id="generatedCode"  autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0"></textarea>
    </div>
 </body>
 </html>

@@ -1,5 +1,4 @@
-var part1 = `
-#include <GL/gl.h>
+var part1 = `#include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <stdlib.h>

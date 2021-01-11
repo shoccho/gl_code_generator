@@ -1,34 +1,60 @@
 body {
-  background: azure;
+  background: #131417;
+  color:#fff;
   font-family: "Courier New", Courier, monospace;
+  padding-left: 20px;
 }
 button {
   display: inline;
-  background-color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-family: 'Fira Code';
+  color: #fff;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+  border-radius: 12px;
+  background-color: #32343b;
+  border-color:#1D1E22;
 }
+input{
+
+    display: inline;
+    font-weight: bold;
+    font-family: 'Fira Code';
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 12px;
+    background-color: #32343b;
+    border-color:#1D1E22;
+  }
+
 #c {
   background-color: #fff;
 }
 .wrapper {
   float: left;
-  width: 50%;
+  width: 550px;
 }
 
 #generatedCode {
   float: left;
-  color: aliceblue;
-  background-color: darkslategray;
-
-  font-size: large;
-  font-weight: bold;
+  color:white;
+  background-color:#1D1E22;
   overflow: scroll;
-  font-family: 'Inconsolata', monospace;
-  padding: 5px;
-  width: 45%;
-  height: 500px;
   
+  font-family: 'Source Code Pro','Fira Code', 'Inconsolata', monospace;
+  padding: 7px;
+  width: 50%;  
+  height: 500px;
+  border-radius: 12px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  
+}
+#generatedCode::-webkit-scrollbar {
+  display: none;
 }
