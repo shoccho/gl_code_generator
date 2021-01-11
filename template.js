@@ -25,9 +25,11 @@ void init()
 }
 static void display(void)
 {
-    glClear(GL_COLOR_BUFFER_BIT);`;
+    glClear(GL_COLOR_BUFFER_BIT);
+    `;
 
-var part2 = `    glFlush();
+var part2 = `
+    glFlush();
 }
 int main(int argc, char **argv)
 {
