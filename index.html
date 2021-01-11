@@ -13,23 +13,27 @@
 </head>
 
 <body>
-    <div class="wrapper">
-    Color
-    <input type="color" id="color" name="color" value="#111111">
-  
-    <button onclick="addRect()">Rectangle</button>
-    <button onclick="addCircle()">Circle</button>
-    <button onclick="addTriangle()">Triangle</button>
-    <button onclick="removeObj()">Delete</button>
-    <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
-    <button onclick="printPos()">Code</button>
-    <script src="fabric.min.js"></script>
-    <script src="template.js"></script>
-    <script src="script.js"></script>
-   </div>
-   <div class="codebox">
-       <h2>Code</h2>
-       <textarea id="generatedCode"  autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0"></textarea>
-   </div>
+    <div class="container">
+        
+        <div class="wrapper">
+            Graphical Editor<br>
+            Color
+            <input type="color" id="color" name="color" onchange="updateColor()" value="#111111">
+        
+            <button onclick="addRect()">Rectangle</button>
+            <button onclick="addCircle()">Circle</button>
+            <button onclick="addTriangle()">Triangle</button>
+            <button onclick="removeObj()">Delete</button>
+            <canvas id="c" width="500" height="500" style="border:1px solid #ccc"></canvas>
+            <button onclick="printPos()">Code</button>
+            <script src="fabric.min.js"></script>
+            <script src="template.js"></script>
+            <script src="script.js"></script>
+        </div>
+        <div class="codebox">
+            <h2>Code</h2>
+        <textarea id="generatedCode"  autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0"></textarea>
+        </div>
+    </div>
 </body>
 </html>

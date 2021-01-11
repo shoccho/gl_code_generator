@@ -4,6 +4,7 @@ body {
   font-family: "Courier New", Courier, monospace;
   padding-left: 20px;
 }
+
 button {
   display: inline;
   font-weight: bold;
@@ -17,21 +18,25 @@ button {
   background-color: #32343b;
   border-color:#1D1E22;
 }
-input{
+#color{
 
-    display: inline;
-    font-weight: bold;
-    font-family: 'Fira Code';
-    color: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 12px;
-    background-color: #32343b;
-    border-color:#1D1E22;
-  }
+  font-weight: bold;
+  font-family: 'Fira Code';
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 12px;
+  background-color: #32343b;
+  border-color:#1D1E22;
+}
 
+.container{
+  width: 100%;
+  overflow:scroll;
+  padding:10px;
+}
 #c {
   background-color: #fff;
 }
@@ -46,8 +51,9 @@ input{
   background-color:#1D1E22;
   overflow: scroll;
   
-  font-family: 'Source Code Pro','Fira Code', 'Inconsolata', monospace;
-  padding: 7px;
+  font-family: 'Fira Code', 'Inconsolata', monospace;
+  font-weight: bold;
+  
   width: 50%;  
   height: 500px;
   border-radius: 12px;

@@ -3,9 +3,26 @@ var canvas = (this.__canvas = new fabric.Canvas("c"));
 uuid = 0;
 var objs = [];
 var colorChooser = document.getElementById("color");
-
 var code = "";
 var stateColor = null;
+
+function updateColor(){
+  
+  var element = canvas.getActiveObject();
+  if (element == undefined){
+    return;
+  }
+  
+  for (idx in objs) {
+    if (objs[idx].id == element.id) {      
+      element.set('fill',colorChooser.value)
+    }
+  }
+  
+  canvas.renderAll();
+  canvas.requestRenderAll();
+
+}
 
 function addRect() {
   var rect = new fabric.Rect({
