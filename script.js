@@ -61,6 +61,7 @@ function removeObj() {
 
 function printPos() {
   code = "";
+  stateColor = null;
   document.getElementById("generatedCode").innerText = "";
   console.log(objs);
   for (obj of objs) {
@@ -83,14 +84,12 @@ function genRect(rect) {
     code += genGlcolor(color);
   }
 
-
   code += "\tglBegin(GL_QUADS);\n";
   code += `\t\tglVertex2f(${rect.lineCoords.tr.x}f,${rect.lineCoords.tr.y}f);\n`;
   code += `\t\tglVertex2f(${rect.lineCoords.tl.x}f,${rect.lineCoords.tl.y}f);\n`;
   code += `\t\tglVertex2f(${rect.lineCoords.bl.x}f,${rect.lineCoords.bl.y}f);\n`;
   code += `\t\tglVertex2f(${rect.lineCoords.br.x}f,${rect.lineCoords.br.y}f);\n`;
   code += "\tglEnd();\n";
-
 }
 
 function genCircle(circle) {
@@ -99,9 +98,34 @@ function genCircle(circle) {
     stateColor = color;
     code += genGlcolor(color);
   }
-  code += `\tdrawFilledelipse(${circle.left + circle.radius},${
-    circle.top + circle.radius
-  },${circle.radius},${circle.radius});\n`;
+  var xr = parseFloat(circle.radius);
+  var yr = parseFloat(circle.radius);
+
+  if (circle.scaleX != undefined) {
+    xr *= parseFloat(circle.scaleX);
+  }
+  if (circle.scaleY != undefined) {
+    yr *= parseFloat(circle.scaleY);
+  }
+  var cx =
+    (parseFloat(circle.lineCoords.tr.x) + parseFloat(circle.lineCoords.bl.x)) /
+    2;
+  var cy =
+    (parseFloat(circle.lineCoords.tr.y) + parseFloat(circle.lineCoords.bl.y)) /
+    2;
+
+  if (circle.angle != undefined) {
+    code += `
+    \tglPushMatrix();
+    \tglTranslatef(${cx}f,${cy}f,0.0f);
+    \tglRotatef(${circle.angle},0,0,1);
+    `;
+
+    code += `\tdrawFilledelipse(0,0,${xr},${yr});\n`;
+    code += `\tglPopMatrix();\n`;
+  } else {
+    code += `\tdrawFilledelipse(${cx},${cy},${xr},${yr});\n`;
+  }
 }
 
 function genTriangle(triangle) {
@@ -116,8 +140,14 @@ function genTriangle(triangle) {
   var sx = triangle.lineCoords.br.x.toFixed(2);
   var sy = triangle.lineCoords.br.y.toFixed(2);
 
-  var tx =( parseFloat(triangle.lineCoords.tr.x.toFixed(2))+parseFloat(triangle.lineCoords.tl.x.toFixed(2)) )/2; 
-  var ty = ( parseFloat(triangle.lineCoords.tr.y.toFixed(2))+parseFloat(triangle.lineCoords.tl.y.toFixed(2)) )/2; 
+  var tx =
+    (parseFloat(triangle.lineCoords.tr.x.toFixed(2)) +
+      parseFloat(triangle.lineCoords.tl.x.toFixed(2))) /
+    2;
+  var ty =
+    (parseFloat(triangle.lineCoords.tr.y.toFixed(2)) +
+      parseFloat(triangle.lineCoords.tl.y.toFixed(2))) /
+    2;
 
   code += "\tglBegin(GL_TRIANGLES);\n";
   code += `\t\tglVertex2f(${fx}f,${fy}f);\n`;
