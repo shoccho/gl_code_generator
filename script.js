@@ -74,7 +74,7 @@ function printPos() {
     }
   }
 
-  document.getElementById("generatedCode").innerText = part1 + code + part2;
+  document.getElementById("generatedCode").value = part1 + code + part2;
 }
 
 function genRect(rect) {

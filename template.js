@@ -1,4 +1,7 @@
-var part1 = `#include <GL/glut.h>
+var part1 = `
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
 #include <stdlib.h>
 #include <math.h>
 #define twicePi 6.28318
