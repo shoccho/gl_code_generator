@@ -22,13 +22,16 @@ The generated code can be compiled using
 
  - building
 
-  `gcc main.o -o main -L "PATH_TO_FREEGLUT/lib/x64" -s -lfreeglut_static -lopengl32 -lglu32 -lgdi32 -lwinmm -Wl,--subsystem,windows`
+  `gcc main.o -o main -L "PATH_TO_FREEGLUT/lib/x64" -s -lfreeglut_static -lopengl32 -lglu32 -lgdi32 -lwinmm `
   
   > if you are using MinGW-W64
 
-  `gcc main.o -o main -L "PATH_TO_FREEGLUT/lib" -s -lfreeglut_static -lopengl32 -lglu32 -lgdi32 -lwinmm -Wl,--subsystem,windows`
+  `gcc main.o -o main -L "PATH_TO_FREEGLUT/lib" -s -lfreeglut_static -lopengl32 -lglu32 -lgdi32 -lwinmm `
   
   > if you are using MinGW
+
+
+ `PATH_TO_FREEGLUT` is the folder where you extracted freeglut.zip ex C:/freeglut/
 
 
 # Dependencies
